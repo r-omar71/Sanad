@@ -1,0 +1,175 @@
+body{
+    background-color: #FBF7F0;
+    font-family: 'Inter';
+}
+/*Allow smooth scrolling when using navbar*/
+html {
+    scroll-behavior: smooth;
+    /* To reach the exact top  */
+    scroll-padding-top: 160px; 
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+section{
+    width: 90%;       
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    
+}
+h2{
+    font-size: 28px;
+    color: #3F5A2A;
+    margin-bottom: 8px;
+}
+    /*Navigation Styling*/
+nav{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    padding-top: 0;
+
+    background-color: #FBF7F0;
+    box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+nav img{
+    height: 100%;
+    width: 100px;
+}
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+.home-link{
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    font-weight: 700;
+}
+.nav-links a:hover{
+    transition: all 0.3s ease;
+    text-shadow: 0px 8px 25px rgba(0.6, 0.6, 0.6, 0.6);
+}
+
+    /*Hero Styling*/
+
+.hero{
+    background-image: url('../media/hero_background.png');
+    max-width: 100%;
+    width: 100%;
+    background-size: cover;         
+    background-position: center;    
+    background-repeat: no-repeat;   
+    min-height: 720px;                 
+    
+    margin-bottom: 0px;
+    padding-top: 280px;
+
+}
+.hero-container{
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+}
+.hero img{
+    height: 100%;
+    max-width:480px;
+    margin: -8px;
+}
+.hero h3{
+    font-size: 20px;
+    font-weight: 550;
+    color: #596340;
+}
+.hero p{
+    margin: 20px 0;
+    letter-spacing: 1px;
+    line-height: 24px;
+}
+.volunteer-button{
+    display: inline-block;
+    background-color: #FB7A38 ;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 14px 80px;
+    border-radius: 20px;
+    margin-top: 8px;
+    box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.volunteer-button:hover{
+     box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.45);
+    transform: scale(1.06);
+}
+
+    /*Features Styling*/
+.features{
+    margin-top: 120px ;
+    margin-bottom: 160px;
+}
+.features p{
+    color: #2B2B2B;
+}
+.feature-cards-container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 60px 0;
+    flex-wrap: wrap;
+}
+.feature-cards{
+    background-color: white;
+    border-radius: 20px;
+    width: 220px;
+    height: 160px;
+    box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+}
+.feature-cards p{
+    font-size: 14px;
+}
+
+    /*Impact Styling*/
+
+.impact-container{
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+}
+.stats-container{
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.number{
+    color: #FB7A38;
+    font-size: 52px;
+}
