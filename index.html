@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Reman Alamoudi</title>
+        <title>Sanad</title>
         
         <!--CSS here-->
         <link rel="stylesheet" href="css/LandingPage.css">
@@ -19,17 +19,17 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body id="top">
 
         <!--NavBar-->
         <header>
             <nav class="navbar">
                 <img src="media/logo.svg" alt="Sanad Logo">
                 <ul class="nav-links">
-                    <li><a href="#" class ="home-link">Home</a></li>
-                    <li><a href="#" class="about-link">About Us</a></li>
-                    <li><a href="#" class="contact-link">Contact</a></li>
-                    <li><a href="#" class="volunteer-link">Volunteer</a></li>
+                    <li><a href="#top" class ="home-link">Home</a></li>
+                    <li><a href="pages/about.html" class="about-link">About Us</a></li>
+                    <li><a href="pages/contact.html" class="contact-link">Contact</a></li>
+                    <li><a href="pages/volunteer.html" class="volunteer-link">Volunteer</a></li>
                 </ul>
             </nav>
         </header>
@@ -57,7 +57,7 @@
                 <article class="feature-cards">
                     <img src="media/support.svg" alt="">
                     <h3>Support</h3>
-                    <p>Assit local causes</p>
+                    <p>Assist local causes</p>
                 </article>
                 <article class="feature-cards">
                     <img src="media/community.svg" alt="">
@@ -75,7 +75,7 @@
                 <div class="stats-container">
                     <div class="stats-box">
                         <span class="number">500+</span>
-                        <p>Volunters joined</p>
+                        <p>Volunteers joined</p>
                     </div>
                     <div class="stats-box">
                         <span class="number">150+</span>
@@ -83,11 +83,57 @@
                     </div>
                     <div class="stats-box">
                         <span class="number">30+</span>
-                        <p>Charties helped</p>
+                        <p>Charities helped</p>
                     </div>
                 </div>
                 <img src="media/map.png" alt="Saudi Arabia's map">
             </div>
         </section>
+
+        <!--Gallery Section-->
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <img src="media/gallery-1.png" alt="Volunteers handing out Iftar at Makkah">
+                <img src="media/gallery-2.png" alt="Volunteer beach cleanup">
+                <img src="media/gallery-3.png" class="full-width" alt="Volunteers handing out food for people in need">
+            </div>
+        </section>
+
+        <!--CTA Section-->
+        <section class="CTA">
+            <h1>Ready To Make A Difference?</h1>
+            <a href="pages/volunteer.html" class="volunteer-button" id="CTA-button">Join Sanad Today</a>
+        </section>
+
+        <!--footer Section-->
+        <footer>
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="media/logo.svg" alt="logo">
+                    <p>Your Path To Giving</p>
+                </div>
+                
+                    <ul class="footer-nav-links">
+                    <li><a href="#top" >Home</a></li>
+                    <li><a href="pages/about.html" >About Us</a></li>
+                    <li><a href="pages/contact.html" >Contact</a></li>
+                    <li><a href="pages/volunteer.html" >Volunteer</a></li>
+                </ul>
+                <div class="footer-socials">
+                    <div class="footer-email">
+                        <img src="media/footer-email.svg" alt="email icon">
+                        <p>Sanad@gmail.com</p>
+                    </div>
+                    <img src="media/footer-linkedin.svg" alt="Linkedin">
+                    <img src="media/footer-twitter.svg" alt="X.com">
+                    <img src="media/footer-instagram.svg" alt="Instagram">
+                    <img src="media/footer-whatsapp.svg" alt="Whatsapp">
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Sanad. All rights reserved.</p>
+            </div>
+        </footer>
     </body>
 </html>
