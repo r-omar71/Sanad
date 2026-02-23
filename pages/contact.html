@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conatct Us</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="../css/Contact.css">
     <!--Favicon-->
     <link rel="icon" type="image/png" href="../media/favicon.png">
@@ -57,11 +57,11 @@
             <form>
                 <div class="row">
                     <div class="input-group">
-                        <input type="text" id="fname" placeholder=" ">
+                        <input type="text" id="fname" placeholder=" " required>
                         <label for="fname" class="floating-label">First Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" id="lname" placeholder=" ">
+                        <input type="text" id="lname" placeholder=" " required>
                         <label for="lname" class="floating-label">Last Name</label>
                     </div>
                 </div>
@@ -70,11 +70,11 @@
                         <label class="gender-title">Gender</label>
                         <div class="gender-options">
                             <label class="radio-label">
-                                <input type="radio" name="gender" value="female">
+                                <input type="radio" name="gender" value="female" required>
                                 <span class="button-design">Female</span>
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="gender" value="male">
+                                <input type="radio" name="gender" value="male" required>
                                 <span class="button-design">Male</span>
                             </label>
                         </div>
@@ -82,7 +82,7 @@
                     <div class="input-group">
                         <input type="text" id="birthdate" placeholder=" " 
                             onfocus="(this.type='date')" 
-                            onblur="if(!this.value)this.type='text'">
+                            onblur="if(!this.value)this.type='text'" required>
                         <label for="birthdate" class="floating-label">Date of Birth</label>
                     </div>
                     <div class="input-group">
@@ -97,19 +97,22 @@
                 </div>
                 <div class="row">
                     <div class="input-group">
-                        <input type="email" id="email" placeholder=" ">
+                        <input type="email" id="email" placeholder=" " required>
                         <label for="email" class="floating-label">Email Address</label>
                     </div>
                     <div class="input-group">
-                        <input type="tel" id="phone" placeholder=" ">
+                        <input type="tel" id="phone" placeholder=" " required
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                         <label for="phone" class="floating-label">Phone Number</label>
                     </div>
                 </div>
                 <div class="input-group">
-                        <textarea id="message" placeholder=" "></textarea>
+                        <textarea id="message" placeholder=" " required></textarea>
                         <label for="message" class="floating-label">Message</label>
                 </div>
-                <button type="submit" class="submit-btn">Submit</button>
+                <button type="submit" class="submit-button">Submit</button>
             </form>
         </section>
     </main>

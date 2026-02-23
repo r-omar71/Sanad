@@ -64,28 +64,25 @@ nav img{
     margin-top: 100px;
 }
 .about-us h1{
-    font-size: 45px;
+    font-size: 52px !important;
     color: #3F5A2A;
     margin-bottom: 10px;
 }
 .about-us p{
-    font-size: 1.1rem;
+    font-size: 20px;
     color: #2B2B2B;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
 }
 .table-container{
+    overflow: hidden;
     background-color: #FFFFFF;
     padding: 30px;
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     width: 1000px;
-    height: 20px 0;
-    overflow: hidden;
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
+
 }
 table{
     width: 100%;
@@ -99,7 +96,7 @@ table th{
     padding: 15px 10px;
     color: #2B2B2B;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 14px !important;
     white-space: nowrap;
 }
 table th:first-child{
@@ -110,7 +107,7 @@ table th:last-child{
 }
 tbody td{
     padding: 20px 10px;
-    font-size: 18px;
+    font-size: 14px !important;
     vertical-align: middle;
     white-space: nowrap;
 }
@@ -191,30 +188,24 @@ footer{
     margin-top: 24px;
 }
 
-@media (max-width: 768px){
-    .about-us h1{
-        font-size: 2rem;
-    }
-    .table-container{
-        padding: 15px;
-        width: 100%;
-    }
-    table th, table td{
-        padding: 10px 5px;
-        font-size: 0.85rem;
-    }
-    .icon-link{
-        width: 30px;
-        height: 30px;
-    }
-    .icon-link img{
-        width: 15px;
-    }
-}
+
 
     /*Responsive Layout*/
 
     @media screen and (max-width:872px){
+        body{
+            padding: 30px 15px;
+        }
+        .table-container{
+            width: 100%;
+            max-width: 95vw;
+            overflow-x: auto;
+            display: block;
+            padding: 20px;
+        }
+        table{
+            min-width: 800px;
+        }
       
         /*footer query*/
     .footer-top{
@@ -229,6 +220,12 @@ footer{
     }
     }
 @media screen and (max-width:690px) {
+    .about-us h1{
+        font-size: 36px !important;
+    }
+    .about-us p{
+        font-size: 24px !important;
+    }
         /*nav query*/
     .nav-links{
         gap: 20px;
@@ -253,6 +250,18 @@ footer{
 }
 
 @media screen and (max-width: 475px) {
+    body{
+        padding: 20px 10px;
+    }
+    .about-us h1{
+        font-size: 32px !important;
+    }
+    .about-us p{
+        font-size: 22px;
+    }
+    .table-container{
+        padding: 10px;
+    }
         
      /*nav query*/
      .navbar{

@@ -59,8 +59,11 @@ header{
 }
 header h1{
     color: #3F5A2A;
-    font-size: 70px;
+    font-size: 52px;
     margin: 0 0 10px;
+}
+header p{
+    font-size: 20px;
 }
 .container{
     max-width: 700px;
@@ -95,7 +98,7 @@ header h1{
 }
 .info-details{
     color: #6B6B6B;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
     margin: 0;
 }
@@ -154,9 +157,7 @@ textarea{
     height: 120px;
     resize: none;
 }
-input:focus, select:focus, textarea:focus {
-    border: 1.5px solid #FB7A38 !important;
-}
+
 .floating-label {
     position: absolute;
     left: 20px;
@@ -174,6 +175,10 @@ textarea + .floating-label{
     top: 20px;
     transform: none;
 }
+input:focus, select:focus, textarea:focus {
+    border: 1.5px solid #FB7A38 !important;
+    outline: none;
+}
 input:focus + .floating-label, 
 input:not(:placeholder-shown) + .floating-label,
 textarea:focus + .floating-label,
@@ -183,6 +188,20 @@ textarea:not(:placeholder-shown) + .floating-label {
     color: #FB7A38;
     font-weight: bold;
     transform: translateY(-50%);
+    background: linear-gradient(to bottom, #FBF7F0 50%, #FFFFFF 50%) !important;
+}
+input:focus + .floating-label,
+textarea:focus + .floating-label,
+select:focus + .floating-label {
+    color: #FB7A38 !important;
+}
+input:focus, select:focus, textarea:focus {
+    border: 1.5px solid #FB7A38 !important;
+    outline: none;
+}
+input:not(:placeholder-shown):not(:focus) + .floating-label,
+textarea:not(:placeholder-shown):not(:focus) + .floating-label {
+    color: #6B6B6B;
 }
 .gender-title {
     display: block;
@@ -201,7 +220,7 @@ textarea:not(:placeholder-shown) + .floating-label {
     background-color: rgba(251, 122, 56, 0.15);
     border-color: #FB7A38;
 }
-.submit-btn{
+.submit-button{
     background-color: #FB7A38;
     color: #FFFFFF;
     border: none;
@@ -210,14 +229,14 @@ textarea:not(:placeholder-shown) + .floating-label {
     cursor: pointer;
     display: block;
     margin: 40px auto;
-    font-size: 14px;
+    font-size: 14px !important;
     font-weight: bold;
     box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.submit-btn:hover {
+.submit-button:hover {
     box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.45);
-    transform: scale(1.03);
+    transform: scale(1.06);
 }
 
 input[type="date"]:focus,
@@ -225,10 +244,7 @@ input[type="date"]:valid,
 input[type="date"]:not(:placeholder-shown) {
     color: #6B6B6B;
 }
-select:not([value=""]):valid {
-    border: 1.5px solid #FB7A38 !important;
-    color: #FB7A38 !important;
-}
+
 select:active {
     border-color: #FB7A38;
 }
@@ -251,6 +267,7 @@ input:focus, textarea:focus {
     justify-content: center;
     height: 36px;
     font-size: 14px;
+    font-family: inherit;
     transition: 0.3s;
     border: 0.5px solid #6B6B6B;
     border-radius: 12px;
@@ -271,6 +288,18 @@ input[type="date"]:not(:placeholder-shown) {
 }
 select{
     color: #6B6B6B;
+}
+input[required] + .floating-label::after,
+textarea[required] + .floating-label::after,
+select[required] + .floating-label::after {
+    content: " *";
+    color: #e74c3c;
+    font-weight: bold;
+}
+.gender-title::after {
+    content: " *";
+    color: #e74c3c;
+    font-weight: bold;
 }
 
     /*footer Styling*/
@@ -328,6 +357,12 @@ footer{
 /*Responsive Layout*/
 
     @media screen and (max-width:872px){
+        .container{
+            max-width: 90%;
+        }
+        .submit-button{
+            padding: 15px 80px;
+        }
       
         /*footer query*/
     .footer-top{
@@ -340,7 +375,26 @@ footer{
         justify-content: center;
     }
     }
+
 @media screen and (max-width:690px) {
+    header h1{
+        font-size: 36px;
+    }
+    header p{
+        font-size: 20px !important;
+    }
+    .row{
+        flex-direction: column;
+        gap: 25px;
+        align-items: stretch;
+    }
+    .info-grid{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .info-card{
+        max-width: 100%;
+    }
         /*nav query*/
     .nav-links{
         gap: 20px;
@@ -365,6 +419,24 @@ footer{
 }
 
 @media screen and (max-width: 475px) {
+    header h1{
+        font-size: 32px;
+    }
+    header p{
+        font-size: 18px !important;
+    }
+    .submit-button{
+        width: 100%;
+        padding: 15px 0;
+        font-size: 12px !important;
+        width: 50%;
+    }
+    .gender-options{
+        flex-direction:row;
+    }
+    .button-design{
+        height: 45px;
+    }
         
      /*nav query*/
      .navbar{
