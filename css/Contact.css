@@ -1,0 +1,224 @@
+body{
+    background-color: #FBF7F0;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: #2B2B2B;
+}
+header{
+    text-align: center;
+    padding: 40px 0 20px;
+}
+header h1{
+    color: #3F5A2A;
+    font-size: 70px;
+    margin: 0 0 10px;
+}
+.container{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.info-card{
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0 auto 50px;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.info-grid{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.info-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+.content-icon{
+    width: 20px;
+    height: 20px;
+    margin-bottom: 12px;
+    object-fit: contain;
+}
+.info-details{
+    color: #6B6B6B;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+.social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.social-icons a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #F4F4F4;
+    border-radius: 50%;
+}
+.social-img{
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+.form-section h2{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #2B2B2B;
+    font-size: 28px;
+}
+.row{
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    align-items: flex-end;
+}
+.input-group{
+    flex: 1;
+    position: relative;
+}
+input, select, textarea {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    border: 0.5px solid #6B6B6B; 
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #2B2B2B;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+textarea{
+    padding-top: 12px;
+    height: 120px;
+    resize: none;
+}
+input:focus, select:focus, textarea:focus {
+    border: 1.5px solid #FB7A38 !important;
+}
+.floating-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FFFFFF; 
+    padding: 0 5px;
+    color: #6B6B6B;
+    font-size: 14px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+textarea + .floating-label{
+    top: 20px;
+    transform: none;
+}
+input:focus + .floating-label, 
+input:not(:placeholder-shown) + .floating-label,
+textarea:focus + .floating-label,
+textarea:not(:placeholder-shown) + .floating-label {
+    top: 0;
+    font-size: 12px;
+    color: #FB7A38;
+    font-weight: bold;
+    transform: translateY(-50%);
+}
+.gender-title {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.gender-options{
+    display: flex;
+    gap: 10px;
+}
+.radio-label input[type="radio"] {
+    display: none;
+}
+.radio-label input[type="radio"]:checked + .button-design {
+    background-color: rgba(251, 122, 56, 0.15);
+    border-color: #FB7A38;
+}
+.submit-btn{
+    background-color: #FB7A38;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 130px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 8px 15px rgba(156, 155, 155, 0.3);
+}
+.submit-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 122, 56, 0.3);
+}
+input[type="date"]:focus,
+input[type="date"]:valid,
+input[type="date"]:not(:placeholder-shown) {
+    color: #6B6B6B;
+}
+select:not([value=""]):valid {
+    border: 1.5px solid #FB7A38 !important;
+    color: #FB7A38 !important;
+}
+select:active {
+    border-color: #FB7A38;
+}
+select option {
+    color: #2B2B2B; 
+    background-color: #FFFFFF;
+}
+.form-section .input-group:last-of-type{
+    margin-top: 25px;
+}
+input:focus, textarea:focus {
+    border: 1.5px solid #FB7A38 !important;
+}
+.radio-label{
+    flex: 1;
+}
+.button-design{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    font-size: 14px;
+    transition: 0.3s;
+    border: 0.5px solid #6B6B6B;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    color: #6B6B6B;
+}
+input[type="date"] {
+    color: transparent;
+}
+input[type="date"]:focus,
+input[type="date"]:valid,
+input[type="date"]:not(:placeholder-shown) {
+    color: #6B6B6B;
+}
+.input-group {
+    position: relative;
+}
+select{
+    color: #6B6B6B;
+}

@@ -1,1 +1,103 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conatct Us</title>
+    <link rel="stylesheet" href="../css/Contact.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <p>We're here to help — reach out any time.</p>
+    </header>
+    <main class="container">
+        <div class="info-card">
+            <div class="info-grid">
+                <div class="info-item">
+                    <img src="../media/location-contact.png" alt="Location" class="content-icon">
+                    <p class="info-details">Al Faisaliyyah<br>Jeddah - Saudi Arabia</p>
+                </div>
+                <div class="info-item">  
+                    <img src="../media/phone-contact.png" alt="Phone" class="content-icon">
+                    <p class="info-details">012 123 567</p>
+                </div>
+                <div class="info-item">
+                    <img src="../media/email-contact.png" alt="Location" class="content-icon">
+                    <p class="info-details">Sanad@gmail.com</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#">
+                    <img src="../media/linkedin-contact.png" alt="Linkedin" class="social-img"></a>
+                <a href="#">
+                    <img src="../media/xtwitter-contact.png" alt="X" class="social-img"></a>
+                <a href="#">
+                    <img src="../media/instagram-contact.png" alt="Instagram" class="social-img"></a>
+                <a href="#">
+                    <img src="../media/whatsapp-contact.png" alt="Whatsapp" class="social-img"></a>
+            </div>
+        </div>
+        <section class="form-section">
+            <h2>Send Us a Message</h2>
+            <form>
+                <div class="row">
+                    <div class="input-group">
+                        <input type="text" id="fname" placeholder=" ">
+                        <label for="fname" class="floating-label">First Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="lname" placeholder=" ">
+                        <label for="lname" class="floating-label">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label class="gender-title">Gender</label>
+                        <div class="gender-options">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female">
+                                <span class="button-design">Female</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male">
+                                <span class="button-design">Male</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="birthdate" placeholder=" " 
+                            onfocus="(this.type='date')" 
+                            onblur="if(!this.value)this.type='text'">
+                        <label for="birthdate" class="floating-label">Date of Birth</label>
+                    </div>
+                    <div class="input-group">
+                        <select name="language" required>
+                            <option value="" disabled selected>Language</option>
+                            <option value="en">English</option>
+                            <option value="ar">Arabic</option>
+                            <option value="fr">French</option>
+                            <option value="zh">Chinese</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder=" ">
+                        <label for="email" class="floating-label">Email Address</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" id="phone" placeholder=" ">
+                        <label for="phone" class="floating-label">Phone Number</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                        <textarea id="message" placeholder=" "></textarea>
+                        <label for="message" class="floating-label">Message</label>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
