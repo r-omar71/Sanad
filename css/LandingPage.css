@@ -1,6 +1,6 @@
 body{
     background-color: #FBF7F0;
-    font-family: 'Inter';
+    font-family: 'Inter' , sans-serif;
 }
 /*Allow smooth scrolling when using navbar*/
 html {
@@ -304,7 +304,7 @@ footer{
         grid-template-columns: 1fr 1fr;
         justify-content: center;
     }
-    .footer-socails{
+    .footer-socials{
         grid-column: 2 span;
         justify-content: center;
         margin-top: 12px;
