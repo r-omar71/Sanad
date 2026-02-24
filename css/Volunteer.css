@@ -309,7 +309,7 @@ textarea:not(:placeholder-shown) + .floating-label .required-star {
 }
 
 /*Responsive Layout*/
-@media screen and (max-width:872px){
+@media screen and (max-width:992px){
     /*footer query*/
     .footer-top{
         display: grid;
@@ -321,7 +321,7 @@ textarea:not(:placeholder-shown) + .floating-label .required-star {
         justify-content: center;
     }
 }
-@media screen and (max-width:690px) {
+@media screen and (max-width:768px) {
     /*nav query*/
     .nav-links{
         gap: 20px;
@@ -369,7 +369,7 @@ textarea:not(:placeholder-shown) + .floating-label .required-star {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 576px) {
     
     /*nav query*/
     nav{
@@ -405,4 +405,69 @@ textarea:not(:placeholder-shown) + .floating-label .required-star {
     font-size: 14px;
     
 }
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999; 
+}
+.modal-overlay:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    border-top: 5px solid #FB7A38; 
+}
+
+.modal-overlay:target .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content h3 {
+    color: #3F5A2A; 
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.modal-content p {
+    color: #6B6B6B;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.modal-btn {
+    background-color: #FB7A38;
+    color: #FFFFFF;
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.modal-btn:hover {
+    box-shadow: 0px 8px 25px 0px rgba(251, 122, 56, 0.4);
+    transform: scale(1.05);
 }
