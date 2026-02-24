@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer - Sanad</title>
     <link rel="stylesheet" href="../css/Volunteer.css">
-    <!--Favicon-->
     <link rel="icon" type="image/png" href="../media/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -27,32 +26,32 @@
 
     <main class="container">
         <section class="form-section">
-            <form action="#" method="POST">
+            <form id="volunteerForm">
                 
                 <h3 class="section-title">Personal Information</h3>
                 
                 <div class="row">
                     <div class="input-group">
                         <input type="text" id="firstName" placeholder=" " required>
-                        <label for="firstName" class="floating-label">First Name</label>
+                        <label for="firstName" class="floating-label">First Name <span class="required-star">*</span></label>
                     </div>
                     <div class="input-group">
                         <input type="text" id="lastName" placeholder=" " required>
-                        <label for="lastName" class="floating-label">Last Name</label>
+                        <label for="lastName" class="floating-label">Last Name <span class="required-star">*</span></label>
                     </div>
                 </div>
 
                 <div class="row align-center">
                     <div class="input-group inline-group">
-                        <label class="gender-title inline-title">Gender</label>
+                        <label class="gender-title inline-title">Gender <span class="required-star">*</span></label>
                         <div class="gender-options">
                             <label class="radio-label">
-                                <input type="radio" name="gender" value="female">
-                                <span class="button-design">Female</span>
+                                <input type="radio" name="gender" value="female" required>
+                                <span class="button-design gender-btn">Female</span>
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="gender" value="male">
-                                <span class="button-design">Male</span>
+                                <input type="radio" name="gender" value="male" required>
+                                <span class="button-design gender-btn">Male</span>
                             </label>
                         </div>
                     </div>
@@ -60,89 +59,89 @@
                         <input type="text" id="dob" placeholder=" " required 
                             onfocus="(this.type='date')" 
                             onblur="if(!this.value)this.type='text'">
-                        <label for="dob" class="floating-label">Date of Birth</label>
+                        <label for="dob" class="floating-label">Date of Birth <span class="required-star">*</span></label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-group">
                         <input type="email" id="email" placeholder=" " required>
-                        <label for="email" class="floating-label">Email Address</label>
+                        <label for="email" class="floating-label">Email Address <span class="required-star">*</span></label>
                     </div>
                     <div class="input-group">
-                        <input type="tel" id="phone" placeholder=" " required>
-                        <label for="phone" class="floating-label">Phone Number</label>
+                        <input type="tel" id="phone" placeholder=" " pattern="05[0-9]{8}" required>
+                        <label for="phone" class="floating-label">Phone Number (05xxxxxxxx) <span class="required-star">*</span></label>
                     </div>
                 </div>
 
                 <h3 class="section-title mt-40">Volunteer Preferences</h3>
                 
                 <div class="input-group mb-20">
-                    <label class="gender-title">Area of Interest</label>
+                    <label class="gender-title">Area of Interest <span class="required-star">*</span></label>
                     <div class="gender-options">
                         <label class="radio-label">
-                            <input type="checkbox" value="Education">
+                            <input type="checkbox" name="interest" value="Education" required>
                             <span class="button-design">Education</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="Events">
+                            <input type="checkbox" name="interest" value="Events">
                             <span class="button-design">Events</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="Food">
+                            <input type="checkbox" name="interest" value="Food">
                             <span class="button-design">Food Distribution</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="Tech">
+                            <input type="checkbox" name="interest" value="Tech">
                             <span class="button-design">Technical Support</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="Media">
+                            <input type="checkbox" name="interest" value="Media">
                             <span class="button-design">Media</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="input-group mb-20">
-                    <textarea id="skills" placeholder=" "></textarea>
-                    <label for="skills" class="floating-label">What are your skills?</label>
+                    <textarea id="skills" placeholder=" " required></textarea>
+                    <label for="skills" class="floating-label">What are your skills? <span class="required-star">*</span></label>
                 </div>
 
                 <div class="input-group mb-20">
-                    <label class="gender-title">Availability</label>
+                    <label class="gender-title">Availability <span class="required-star">*</span></label>
                     <div class="gender-options">
                         <label class="radio-label">
-                            <input type="checkbox" value="Morning">
+                            <input type="checkbox" name="availability" value="Morning" required>
                             <span class="button-design">Morning</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="Evening">
+                            <input type="checkbox" name="availability" value="Evening">
                             <span class="button-design">Evening</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="Weekdays">
+                            <input type="checkbox" name="availability" value="Weekdays">
                             <span class="button-design">Weekdays</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="Weekends">
+                            <input type="checkbox" name="availability" value="Weekends">
                             <span class="button-design">Weekends</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="input-group mb-20">
-                    <label class="gender-title">Languages</label>
+                    <label class="gender-title">Languages <span class="required-star">*</span></label>
                     <div class="gender-options">
                         <label class="radio-label">
-                            <input type="checkbox" value="Arabic">
+                            <input type="checkbox" name="language" value="Arabic" required>
                             <span class="button-design">Arabic</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="English">
+                            <input type="checkbox" name="language" value="English">
                             <span class="button-design">English</span>
                         </label>
                         <label class="radio-label">
-                            <input type="checkbox" value="French">
+                            <input type="checkbox" name="language" value="French">
                             <span class="button-design">French</span>
                         </label>
                     </div>
@@ -151,8 +150,8 @@
                 <h3 class="section-title mt-40">Message</h3>
                 
                 <div class="input-group mb-20">
-                    <textarea id="message" placeholder=" "></textarea>
-                    <label for="message" class="floating-label">Why do you want to volunteer?</label>
+                    <textarea id="message" placeholder=" " required></textarea>
+                    <label for="message" class="floating-label">Why do you want to volunteer? <span class="required-star">*</span></label>
                 </div>
 
                 <button type="submit" class="submit-btn">Submit</button>
@@ -186,5 +185,24 @@
             <p>© 2026 Sanad. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('volunteerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            alert('Submitted successfully! Thank you for joining Sanad.');
+            window.location.href = '../index.html'; 
+        });
+
+        const checkboxGroups = ['interest', 'availability', 'language'];
+        checkboxGroups.forEach(group => {
+            const checkboxes = document.querySelectorAll(`input[name="${group}"]`);
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const anyChecked = Array.from(checkboxes).some(c => c.checked);
+                    checkboxes.forEach(c => c.required = !anyChecked);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

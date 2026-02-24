@@ -206,6 +206,16 @@ input[type="date"]:not(:placeholder-shown) {
     cursor: pointer;
     color: #6B6B6B;
 }
+
+.inline-group .gender-options {
+    flex-wrap: nowrap;
+}
+.gender-btn {
+    width: 85px; 
+    padding: 0 10px;
+    justify-content: center;
+}
+
 .radio-label input[type="radio"]:checked + .button-design,
 .radio-label input[type="checkbox"]:checked + .button-design {
     background-color: rgba(251, 122, 56, 0.15);
@@ -286,10 +296,21 @@ footer {
     margin-top: 24px;
 }
 
-    /*Responsive Layout*/
- @media screen and (max-width:872px){
-      
-        /*footer query*/
+.required-star {
+    color: red;
+    margin-left: 2px;
+}
+
+input:focus + .floating-label .required-star, 
+input:not(:placeholder-shown) + .floating-label .required-star,
+textarea:focus + .floating-label .required-star,
+textarea:not(:placeholder-shown) + .floating-label .required-star {
+    font-size: 14px;
+}
+
+/*Responsive Layout*/
+@media screen and (max-width:872px){
+    /*footer query*/
     .footer-top{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -299,14 +320,14 @@ footer {
         grid-column: 2 span;
         justify-content: center;
     }
-    }
+}
 @media screen and (max-width:690px) {
-        /*nav query*/
+    /*nav query*/
     .nav-links{
         gap: 20px;
         font-size: 14px;
     }
-        /*form query*/
+    /*form query*/
     .row {
         flex-direction: column;
         gap: 20px;
@@ -319,7 +340,7 @@ footer {
     .form-section {
         padding: 30px 20px;
     }
-       /*footer query*/
+    /*footer query*/
     .footer-top{
         display: flex;
         flex-direction: column;   
@@ -338,15 +359,15 @@ footer {
 }
 
 @media screen and (max-width: 475px) {
-        
-     /*nav query*/
-     .navbar{
+    /*nav query*/
+    .navbar{
         padding: 0 20px;
-     }
-     .navbar img{
+    }
+    .navbar img{
         max-width: 80px;
-     }
+    }
     .nav-links{
         gap: 12px;
         font-size: 12px;
-    }}
+    }
+}
