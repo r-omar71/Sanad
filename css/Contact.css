@@ -63,7 +63,8 @@ header h1{
     margin: 0 0 10px;
 }
 header p{
-    font-size: 20px;
+    font-size: 16px;
+    color: #6B6B6B;
 }
 .container{
     max-width: 700px;
@@ -304,9 +305,10 @@ select[required] + .floating-label::after {
 
     /*footer Styling*/
 footer{
-    margin: 40px;
-    margin-bottom: 20px;
-    width: 90%;
+   margin: 40px auto 20px auto; 
+    width: 100%;                
+    max-width: 90%;             
+    box-sizing: border-box;
     
 }
 .footer-top{
@@ -439,7 +441,7 @@ footer{
     }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 500px) {
     header h1{
         font-size: 32px;
     }
@@ -448,6 +450,14 @@ footer{
     }
     header p{
         font-size: 12px !important;
+    }
+
+    .info-grid{
+        gap: 4px;
+        align-items:start;
+    }
+    .info-card{
+        max-width: 400px;
     }
     .submit-button{
         width: 100%;

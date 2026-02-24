@@ -55,7 +55,7 @@ nav img {
     font-size: 56px;
     color: #3F5A2A;
     margin-bottom: 8px;
-    font-weight: 600;
+    font-weight: 700;
 }
 .join-us-header p {
     font-size: 16px;
@@ -340,6 +340,17 @@ textarea:not(:placeholder-shown) + .floating-label .required-star {
     .form-section {
         padding: 30px 20px;
     }
+
+    /*body query*/
+    .join-us-header h1 {
+    font-size: 44px;
+    
+    }
+    .join-us-header p {
+        font-size: 16px;
+        
+    }
+
     /*footer query*/
     .footer-top{
         display: flex;
@@ -358,8 +369,13 @@ textarea:not(:placeholder-shown) + .floating-label .required-star {
     }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 500px) {
+    
     /*nav query*/
+    nav{
+        padding: 0 20px;
+    }
+    
     .navbar{
         padding: 0 20px;
     }
@@ -369,5 +385,24 @@ textarea:not(:placeholder-shown) + .floating-label .required-star {
     .nav-links{
         gap: 12px;
         font-size: 12px;
+        padding-left: 0px;
     }
+
+    /*body query*/
+    .join-us-header h1 {
+    font-size: 36px;
+    
+    }
+    .join-us-header p {
+        font-size: 14px;
+        
+    }
+
+    /*Submit Button query*/
+    .submit-btn {
+    padding: 10px 80px;
+    border-radius: 30px;
+    font-size: 14px;
+    
+}
 }

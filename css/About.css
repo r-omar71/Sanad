@@ -68,10 +68,11 @@ nav img{
     font-size: 52px !important;
     color: #3F5A2A;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 .about-us p{
-    font-size: 20px;
-    color: #2B2B2B;
+    font-size: 16px;
+    color: #6B6B6B;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -100,8 +101,8 @@ table th{
     color: #2B2B2B;
     font-weight: 600;
     font-size: 14px;
-    white-space: normal;
-    word-break: break-word;
+    white-space: nowrap;
+    word-break: normal;
 }
 table th:first-child{
     border-radius: 15px 0 0 15px;
@@ -110,7 +111,7 @@ table th:last-child{
     border-radius: 0 15px 15px 0;
 }
 tbody td{
-    padding: 20px 10px;
+    padding: 10px 10px;
     font-size: 14px;
     vertical-align: middle;
     white-space: normal;
@@ -134,9 +135,8 @@ tbody td{
 .icon-link img{
     width: 20px;
     height: auto;
-
 }
-
+    
     /*footer Styling*/
 footer{
     margin: 40px;
@@ -230,11 +230,14 @@ footer{
     table th,
     table td{
         font-size: 12px;
-        padding: 6px;
+        padding: 6px ;
     }
     .icon-link{
-        width: 26px;
-        height: 26px;
+        width: 20px;
+        height: 20px;
+    }
+    .links-cell{
+        gap: 4px;
     }
     .icon-link img{
         width: 14px;
@@ -243,10 +246,17 @@ footer{
         font-size: 36px !important;
     }
     .about-us p{
-        font-size: 16px;
+        font-size: 14px;
         max-width: 90%;
         padding: 0 10px;
     }
+        /* Required for <wbr> to work */
+    .email-cell {
+        white-space: normal; 
+        word-break: keep-all; 
+        max-width: 150px; 
+    }
+
 
         /*nav query*/
     .nav-links{
@@ -272,18 +282,20 @@ footer{
 }
 
 @media screen and (max-width: 475px) {
-
+    body{
+        padding: 40px 10px;
+    }
     .table-container{
         padding: 10px;
     }
     table th,
     table td{
         font-size: 10px;
-        padding: 5px;
+        padding: 6px 3px;
     }
     .icon-link{
-        width: 22px;
-        height: 22px;
+        width: 18px;
+        height: 18px;
     }
     .icon-link img{
         width: 12px;
@@ -292,7 +304,7 @@ footer{
         font-size: 32px !important;
     }
     .about-us p{
-        font-size: 14px;
+        font-size: 12px;
         line-height: 1.4;
     }
         
