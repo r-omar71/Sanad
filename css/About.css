@@ -12,7 +12,12 @@ body{
     min-height: 100vh;
     padding: 40px 20px;
 }
-
+/*Allow smooth scrolling when using navbar*/
+html {
+    scroll-behavior: smooth;
+    /* To reach the exact top  */
+    scroll-padding-top: 160px; 
+}
     /*Navigation Styling*/
 nav{
 

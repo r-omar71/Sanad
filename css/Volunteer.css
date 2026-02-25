@@ -7,6 +7,12 @@ body {
 * {
     box-sizing: border-box;
 }
+/*Allow smooth scrolling when using navbar*/
+html {
+    scroll-behavior: smooth;
+    /* To reach the exact top  */
+    scroll-padding-top: 160px; 
+}
 a {
     text-decoration: none;
     color: inherit;
