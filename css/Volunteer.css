@@ -7,10 +7,8 @@ body {
 * {
     box-sizing: border-box;
 }
-/*Allow smooth scrolling when using navbar*/
 html {
     scroll-behavior: smooth;
-    /* To reach the exact top  */
     scroll-padding-top: 160px; 
 }
 a {
@@ -152,7 +150,6 @@ input:focus, textarea:focus {
     border: 1.5px solid #FB7A38 !important;
 }
 
-/* رفع العنوان وتلوينه عند التحديد أو التعبئة */
 input:focus + .floating-label, 
 input:not(:placeholder-shown) + .floating-label,
 textarea:focus + .floating-label,
@@ -166,7 +163,6 @@ input[type="date"]:valid + .floating-label {
     transform: translateY(-50%);
 }
 
-/* إخفاء نص التاريخ الافتراضي إذا كان الحقل فاضي */
 input[type="date"] {
     color: transparent;
 }
@@ -175,7 +171,6 @@ input[type="date"]:valid {
     color: #2B2B2B;
 }
 
-/* إبقاء عنوان التاريخ في مكانه إذا لم يتم التركيز عليه أو تعبئته */
 input[type="date"]:not(:focus):invalid + .floating-label {
     top: 50%;
     font-size: 14px;
@@ -330,9 +325,7 @@ input[type="date"]:valid + .floating-label .required-star {
     font-size: 14px;
 }
 
-/*Responsive Layout*/
 @media screen and (max-width:992px){
-    /*footer query*/
     .footer-top{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -344,12 +337,10 @@ input[type="date"]:valid + .floating-label .required-star {
     }
 }
 @media screen and (max-width:768px) {
-    /*nav query*/
     .nav-links{
         gap: 20px;
         font-size: 14px;
     }
-    /*form query*/
     .row {
         flex-direction: column;
         gap: 20px;
@@ -363,7 +354,6 @@ input[type="date"]:valid + .floating-label .required-star {
         padding: 30px 20px;
     }
 
-    /*body query*/
     .join-us-header h1 {
     font-size: 44px;
     
@@ -373,7 +363,6 @@ input[type="date"]:valid + .floating-label .required-star {
         
     }
 
-    /*footer query*/
     .footer-top{
         display: flex;
         flex-direction: column;   
@@ -393,7 +382,6 @@ input[type="date"]:valid + .floating-label .required-star {
 
 @media screen and (max-width: 576px) {
     
-    /*nav query*/
     nav{
         padding: 0 20px;
     }
@@ -410,7 +398,6 @@ input[type="date"]:valid + .floating-label .required-star {
         padding-left: 0px;
     }
 
-    /*body query*/
     .join-us-header h1 {
     font-size: 36px;
     
@@ -420,7 +407,6 @@ input[type="date"]:valid + .floating-label .required-star {
         
     }
 
-    /*Submit Button query*/
     .submit-btn {
     padding: 10px 80px;
     border-radius: 30px;
