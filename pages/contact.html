@@ -101,12 +101,13 @@
                         <label for="email" class="floating-label">Email Address</label>
                     </div>
                     <div class="input-group">
-                        <input type="tel" id="phone" placeholder=" " required
+                        <input type="tel" id="phone" placeholder=" " 
+                        title="Phone number must start with 05 and contain exactly 10 digits" required
                         inputmode="numeric"
                         maxlength="10"
-                        pattern="[0-9]*"
+                        pattern="05[0-9]{8}"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-                        <label for="phone" class="floating-label">Phone Number</label>
+                        <label for="phone" class="floating-label">Phone Number (05xxxxxxxx)</label>
                     </div>
                 </div>
                 <div class="input-group">
@@ -127,9 +128,9 @@
                 </div>
                 
                     <ul class="footer-nav-links">
-                    <li><a href="#../index.html" >Home</a></li>
-                    <li><a href="#top" >About Us</a></li>
-                    <li><a href="contact.html" >Contact</a></li>
+                    <li><a href="../index.html" >Home</a></li>
+                    <li><a href="about.html" >About Us</a></li>
+                    <li><a href="#top" >Contact</a></li>
                     <li><a href="volunteer.html" >Volunteer</a></li>
                 </ul>
                 <div class="footer-socials">
