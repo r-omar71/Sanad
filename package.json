@@ -1,0 +1,25 @@
+{
+  "name": "sanad",
+  "version": "1.0.0",
+  "description": "A Volunteer Platform",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-omar71/Sanad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r-omar71/Sanad/issues"
+  },
+  "homepage": "https://github.com/r-omar71/Sanad#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.22.2"
+  }
+}

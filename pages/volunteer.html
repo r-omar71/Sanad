@@ -29,127 +29,126 @@
 
     <main class="container">
         <section class="form-section">
-            <form id="volunteerForm" action="../index.html">
-                
-                <h2 class="section-title">Personal Information</h2>
-                
-                <div class="row">
-                    <div class="input-group">
-                        <input type="text" id="firstName" placeholder=" " required>
-                        <label for="firstName" class="floating-label">First Name <span class="required-star">*</span></label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" id="lastName" placeholder=" " required>
-                        <label for="lastName" class="floating-label">Last Name <span class="required-star">*</span></label>
-                    </div>
-                </div>
+<form id="volunteerForm" action="http://localhost:3000/submit-volunteer" method="POST">                
+    <h2 class="section-title">Personal Information</h2>
+    
+    <div class="row">
+        <div class="input-group">
+            <input type="text" id="firstName" name="firstName" placeholder=" " required>
+            <label for="firstName" class="floating-label">First Name <span class="required-star">*</span></label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="lastName" name="lastName" placeholder=" " required>
+            <label for="lastName" class="floating-label">Last Name <span class="required-star">*</span></label>
+        </div>
+    </div>
 
-                <div class="row align-center">
-                    <div class="input-group inline-group">
-                        <label class="gender-title inline-title">Gender <span class="required-star">*</span></label>
-                        <div class="gender-options">
-                            <label class="radio-label">
-                                <input type="radio" name="gender" value="female" required>
-                                <span class="button-design gender-btn">Female</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="gender" value="male" required>
-                                <span class="button-design gender-btn">Male</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <input type="date" id="dob" required>
-                        <label for="dob" class="floating-label">Date of Birth <span class="required-star">*</span></label>
-                    </div>
-                </div>
+    <div class="row align-center">
+        <div class="input-group inline-group">
+            <label class="gender-title inline-title">Gender <span class="required-star">*</span></label>
+            <div class="gender-options">
+                <label class="radio-label">
+                    <input type="radio" name="gender" value="female" required>
+                    <span class="button-design gender-btn">Female</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="gender" value="male" required>
+                    <span class="button-design gender-btn">Male</span>
+                </label>
+            </div>
+        </div>
+        <div class="input-group">
+            <input type="date" id="dob" name="dob" required>
+            <label for="dob" class="floating-label">Date of Birth <span class="required-star">*</span></label>
+        </div>
+    </div>
 
-                <div class="row">
-                    <div class="input-group">
-                        <input type="email" id="email" placeholder=" " required>
-                        <label for="email" class="floating-label">Email Address <span class="required-star">*</span></label>
-                    </div>
-                    <div class="input-group">
-                        <input type="tel" id="phone" placeholder=" " pattern="05[0-9]{8}" title="Phone number must start with 05 and contain exactly 10 digits" required>
-                        <label for="phone" class="floating-label">Phone Number (05xxxxxxxx) <span class="required-star">*</span></label>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="input-group">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email" class="floating-label">Email Address <span class="required-star">*</span></label>
+        </div>
+        <div class="input-group">
+            <input type="tel" id="phone" name="phone" placeholder=" " pattern="05[0-9]{8}" title="Phone number must start with 05 and contain exactly 10 digits" required>
+            <label for="phone" class="floating-label">Phone Number (05xxxxxxxx) <span class="required-star">*</span></label>
+        </div>
+    </div>
 
-                <h3 class="section-title mt-40">Volunteer Preferences</h3>
-                
-                <div class="input-group mb-20">
-                    <label class="gender-title">Area of Interest</label>
-                    <div class="gender-options">
-                        <label class="radio-label">
-                            <input type="checkbox" name="interest" value="Education">
-                            <span class="button-design">Education</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="interest" value="Events">
-                            <span class="button-design">Events</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="interest" value="Food">
-                            <span class="button-design">Food Distribution</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="interest" value="Tech">
-                            <span class="button-design">Technical Support</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="interest" value="Media">
-                            <span class="button-design">Media</span>
-                        </label>
-                    </div>
-                </div>
+    <h3 class="section-title mt-40">Volunteer Preferences</h3>
+    
+    <div class="input-group mb-20">
+        <label class="gender-title">Area of Interest</label>
+        <div class="gender-options">
+            <label class="radio-label">
+                <input type="checkbox" name="interest" value="Education">
+                <span class="button-design">Education</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="interest" value="Events">
+                <span class="button-design">Events</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="interest" value="Food">
+                <span class="button-design">Food Distribution</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="interest" value="Tech">
+                <span class="button-design">Technical Support</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="interest" value="Media">
+                <span class="button-design">Media</span>
+            </label>
+        </div>
+    </div>
 
-                <div class="input-group mb-20">
-                    <label class="gender-title">What are your skills? <span class="required-star">*</span></label>
-                    <textarea id="skills" required></textarea>
-                </div>
-                
-                <div class="input-group mb-20">
-                    <label class="gender-title">Availability</label>
-                    <div class="gender-options">
-                        <label class="radio-label">
-                            <input type="checkbox" name="availability" value="Morning" >
-                            <span class="button-design">Morning</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="availability" value="Evening">
-                            <span class="button-design">Evening</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="availability" value="Weekdays">
-                            <span class="button-design">Weekdays</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="availability" value="Weekends">
-                            <span class="button-design">Weekends</span>
-                        </label>
-                    </div>
-                </div>
+    <div class="input-group mb-20">
+        <label class="gender-title">What are your skills? <span class="required-star">*</span></label>
+        <textarea id="skills" name="skills" required></textarea>
+    </div>
+    
+    <div class="input-group mb-20">
+        <label class="gender-title">Availability</label>
+        <div class="gender-options">
+            <label class="radio-label">
+                <input type="checkbox" name="availability" value="Morning" >
+                <span class="button-design">Morning</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="availability" value="Evening">
+                <span class="button-design">Evening</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="availability" value="Weekdays">
+                <span class="button-design">Weekdays</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="availability" value="Weekends">
+                <span class="button-design">Weekends</span>
+            </label>
+        </div>
+    </div>
 
-                <div class="input-group mb-20">
-                    <label class="gender-title">Languages</label>
-                    <div class="gender-options">
-                        <label class="radio-label">
-                            <input type="checkbox" name="language" value="Arabic">
-                            <span class="button-design">Arabic</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="language" value="English">
-                            <span class="button-design">English</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="checkbox" name="language" value="French">
-                            <span class="button-design">French</span>
-                        </label>
-                    </div>
-                </div>
+    <div class="input-group mb-20">
+        <label class="gender-title">Languages</label>
+        <div class="gender-options">
+            <label class="radio-label">
+                <input type="checkbox" name="language" value="Arabic">
+                <span class="button-design">Arabic</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="language" value="English">
+                <span class="button-design">English</span>
+            </label>
+            <label class="radio-label">
+                <input type="checkbox" name="language" value="French">
+                <span class="button-design">French</span>
+            </label>
+        </div>
+    </div>
 
-                <button type="submit" class="submit-btn">Submit</button>
-            </form>
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
         </section>
     </main>
 
