@@ -3,76 +3,170 @@ const mysql = require('mysql2');
 
 const app = express();
 
+app.use("/", express.static("./public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'sanad_db'
-});
+// Volunteer Page 
+ 
+// --- VOLUNTEER REGISTRATION (POST SECTION) ---
+function addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages) {
+    const db = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "", 
+        database: "sanad_db"
+    });
 
-db.connect((err) => {
-    if (err) {
-        console.error(' Database connection error:', err);
-        return;
-    }
-    console.log(' Connected to Sanad Database successfully!');
-});
+    db.connect((err) => {
+        if (err) throw err;
 
-// Volunteer Page Endpoint 
+        
+        let sql = "INSERT INTO volunteers (first_name, last_name, gender, dob, email, phone, interests, skills, availability, languages) VALUES ('" 
+                  + fName + "', '" + lName + "', '" + gender + "', '" + dob + "', '" + email + "', '" + phone + "', '" + interests + "', '" + skills + "', '" + availability + "', '" + languages + "')";
+
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+            console.log("1 record added to Sanad Volunteers table");
+            db.end(); 
+        });
+    });
+}
+
 app.post('/submit-volunteer', (req, res) => {
-    const { firstName, lastName, gender, dob, email, phone, skills } = req.body;
+    const fName = req.body.firstName;
+    const lName = req.body.lastName;
+    const gender = req.body.gender;
+    const dob = req.body.dob;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const skills = req.body.skills;
 
     const interests = req.body.interest ? req.body.interest.toString() : '';
     const availability = req.body.availability ? req.body.availability.toString() : '';
     const languages = req.body.language ? req.body.language.toString() : '';
 
-    const sql = `INSERT INTO volunteers 
-        (first_name, last_name, gender, dob, email, phone, interests, skills, availability, languages) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-
-    const values = [firstName, lastName, gender, dob, email, phone, interests, skills, availability, languages];
-
-    db.query(sql, values, (err, result) => {
-        if (err) {
-            console.error(' Error during insertion:', err);
-            res.status(500).send('Sorry, an error occurred.');
-        } else {
-            res.send(`
-                <script>
-                    alert('Success! Your registration has been submitted.');
-                    window.location.href = 'http://127.0.0.1:5500/index.html';
-                </script>
-            `);
-        }
-    });
+    if (fName && lName && gender && dob && email && phone && skills) {
+        
+        addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages);
+        
+        res.send(`
+            <script>
+                alert('Success ,Your registration for Sanad has been submitted.');
+                window.location.href = '/index.html';
+            </script>
+        `);
+    } else {
+        res.send("<h1>Error: Please complete all mandatory fields marked with a star (*).</h1><a href='javascript:history.back()'>Go Back</a>");
+    }
 });
 
-// Contact Us Page Endpoint
-app.post('/submit-contact', (req, res) => {
-    const { firstName, lastName, gender, dob, language, email, phone, message } = req.body;
-
-    const sql = `INSERT INTO contact_messages 
-        (first_name, last_name, gender, dob, language, email, phone, message) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
-
-    const values = [firstName, lastName, gender, dob, language, email, phone, message];
-
-    db.query(sql, values, (err, result) => {
-        if (err) {
-            console.error(' Error saving message:', err);
-            res.status(500).send('Error');
-        } else {
-            res.send(`
-                <script>
-                    alert('Success! Your message has been sent.');
-                    window.location.href = 'http://127.0.0.1:5500/index.html';
-                </script>
-            `);
-        }
+// --- DATA DISPLAY (GET SECTION) ---
+function getVolunteers(res) {
+    const db = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "", 
+        database: "sanad_db"
     });
+
+    db.connect((err) => {
+        if (err) throw err;
+
+        let sql = "SELECT * FROM volunteers";
+
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+
+            res.json(result);
+            db.end();
+        });
+    });
+}
+
+app.get('/view-volunteers', (req, res) => {
+    getVolunteers(res);
+});
+
+
+
+
+
+
+// Contact Us Page 
+
+// --- CONTACT MESSAGES (POST SECTION) ---
+
+function addMessage(fName, lName, gender, dob, language, email, phone, message) {
+    const db = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "", 
+        database: "sanad_db"
+    });
+
+    db.connect((err) => {
+        if (err) throw err;
+        
+        let sql = "INSERT INTO contact_messages (first_name, last_name, gender, dob, language, email, phone, message) VALUES ('" 
+                  + fName + "', '" + lName + "', '" + gender + "', '" + dob + "', '" + language + "', '" + email + "', '" + phone + "', '" + message + "')";
+
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+            console.log("New contact message saved!");
+            db.end();
+        });
+    });
+}
+
+app.post('/submit-contact', (req, res) => {
+    const fName = req.body.firstName;
+    const lName = req.body.lastName;
+    const gender = req.body.gender;
+    const dob = req.body.dob;
+    const language = req.body.language; 
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const message = req.body.message;
+
+    if (fName && lName && gender && dob && email && phone && message) {
+        
+        addMessage(fName, lName, gender, dob, language, email, phone, message);
+        
+        res.send(`
+            <script>
+                alert('Success! Your message has been sent to Sanad team.');
+                window.location.href = '../index.html';
+            </script>
+        `);
+    } else {
+        res.send("<h1>Error: Please fill in all fields marked with a red star (*).</h1>");
+    }
+});
+
+// --- VIEW MESSAGES (GET SECTION) ---
+
+function getMessages(res) {
+    const db = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "", 
+        database: "sanad_db"
+    });
+
+    db.connect((err) => {
+        if (err) throw err;
+        let sql = "SELECT * FROM contact_messages";
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+            res.json(result);
+            db.end();
+        });
+    });
+}
+
+app.get('/view-messages', (req, res) => {
+    getMessages(res);
 });
 
 const PORT = 3000;
