@@ -3,7 +3,9 @@ console.log("Sanad System: Volunteer Page Connected");
 const form = document.getElementById('volunteerForm');
 
 if (form) {
-    form.addEventListener('submit', function() {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
         const dob = document.getElementById('dob').value;
