@@ -54,68 +54,64 @@
         </div>
         <section class="form-section">
             <h2>Send Us a Message</h2>
-            <form>
-                <div class="row">
-                    <div class="input-group">
-                        <input type="text" id="fname" placeholder=" " required>
-                        <label for="fname" class="floating-label">First Name</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" id="lname" placeholder=" " required>
-                        <label for="lname" class="floating-label">Last Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group">
-                        <label class="gender-title">Gender</label>
-                        <div class="gender-options">
-                            <label class="radio-label">
-                                <input type="radio" name="gender" value="female" required>
-                                <span class="button-design">Female</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="gender" value="male" required>
-                                <span class="button-design">Male</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" id="birthdate" placeholder=" " 
-                            onfocus="(this.type='date')" 
-                            onblur="if(!this.value)this.type='text'" required>
-                        <label for="birthdate" class="floating-label">Date of Birth</label>
-                    </div>
-                    <div class="input-group">
-                        <select name="language" required>
-                            <option value="" disabled selected>Language</option>
-                            <option value="en">English</option>
-                            <option value="ar">Arabic</option>
-                            <option value="fr">French</option>
-                            <option value="zh">Chinese</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group">
-                        <input type="email" id="email" placeholder=" " required>
-                        <label for="email" class="floating-label">Email Address</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="tel" id="phone" placeholder=" " 
-                        title="Phone number must start with 05 and contain exactly 10 digits" required
-                        inputmode="numeric"
-                        maxlength="10"
-                        pattern="05[0-9]{8}"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-                        <label for="phone" class="floating-label">Phone Number (05xxxxxxxx)</label>
-                    </div>
-                </div>
-                <div class="input-group">
-                        <textarea id="message" placeholder=" " required></textarea>
-                        <label for="message" class="floating-label">Message</label>
-                </div>
-                <button type="submit" class="submit-button">Submit</button>
-            </form>
+            <form action="http://localhost:3000/submit-contact" method="POST">
+    <div class="row">
+        <div class="input-group">
+            <input type="text" id="fname" name="firstName" placeholder=" " required>
+            <label for="fname" class="floating-label">First Name</label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="lname" name="lastName" placeholder=" " required>
+            <label for="lname" class="floating-label">Last Name</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group">
+            <label class="gender-title">Gender</label>
+            <div class="gender-options">
+                <label class="radio-label">
+                    <input type="radio" name="gender" value="female" required>
+                    <span class="button-design">Female</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="gender" value="male" required>
+                    <span class="button-design">Male</span>
+                </label>
+            </div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="birthdate" name="dob" placeholder=" " 
+                onfocus="(this.type='date')" 
+                onblur="if(!this.value)this.type='text'" required>
+            <label for="birthdate" class="floating-label">Date of Birth</label>
+        </div>
+        <div class="input-group">
+            <select name="language" required>
+                <option value="" disabled selected>Language</option>
+                <option value="English">English</option>
+                <option value="Arabic">Arabic</option>
+                <option value="French">French</option>
+                <option value="Chinese">Chinese</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email" class="floating-label">Email Address</label>
+        </div>
+        <div class="input-group">
+            <input type="tel" id="phone" name="phone" placeholder=" " required 
+                pattern="05[0-9]{8}">
+            <label for="phone" class="floating-label">Phone Number (05xxxxxxxx)</label>
+        </div>
+    </div>
+    <div class="input-group">
+            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <label for="message" class="floating-label">Message</label>
+    </div>
+    <button type="submit" class="submit-button">Submit</button>
+</form>
         </section>
     </main>
 
