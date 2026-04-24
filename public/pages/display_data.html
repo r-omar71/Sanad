@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sanad</title>
+        
+        <!--CSS here-->
+        <link rel="stylesheet" href="../css/display_data.css">
+
+        <!--Favicon-->
+        <link rel="icon" type="image/png" href="../media/favicon.png">
+
+
+        <!--font family links-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <!--NavBar-->
+        <header>
+            <nav class="navbar">
+                <img src="../media/logo.svg" alt="Sanad Logo">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class ="home-link">Home</a></li>
+                    <li><a href="about.html" class="about-link">About Us</a></li>
+                    <li><a href="contact.html" class="contact-link">Contact</a></li>
+                    <li><a href="volunteer.html" class="volunteer-link">Volunteer</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--Main Content-->
+        <div class="tabs">
+            <a class= "tab-link" href="#contact" onclick="showSection('contact', this)">Contact Data</a>
+            <a class= "tab-link" href="#volunteer" onclick="showSection('volunteer', this)">Volunteer Data</a>
+        </div>
+
+        <div id="contact" class="tab-content">
+        
+        <p>This is contact section</p>
+        </div>
+
+        <div id="volunteer" class="tab-content">
+       
+        <p>This is Volunteer section</p>
+        </div>
+        <!--footer Section-->
+        <footer>
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="../media/logo.svg" alt="logo">
+                    <p>Your Path To Giving</p>
+                </div>
+                
+                    <ul class="footer-nav-links">
+                    <li><a href="../index.html" >Home</a></li>
+                    <li><a href="about.html" >About Us</a></li>
+                    <li><a href="#top" >Contact</a></li>
+                    <li><a href="volunteer.html" >Volunteer</a></li>
+                </ul>
+                <div class="footer-socials">
+                    <div class="footer-email">
+                        <img src="../media/footer-email.svg" alt="email icon">
+                        <p>Sanad@gmail.com</p>
+                    </div>
+                    <img src="../media/footer-linkedin.svg" alt="Linkedin">
+                    <img src="../media/footer-twitter.svg" alt="X.com">
+                    <img src="../media/footer-instagram.svg" alt="Instagram">
+                    <img src="../media/footer-whatsapp.svg" alt="Whatsapp">
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Sanad. All rights reserved.</p>
+            </div>
+        </footer>
+        <script src="../js/display_data.js"></script>
+
+    </body>
+</html>
