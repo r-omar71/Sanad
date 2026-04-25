@@ -109,15 +109,25 @@ function addMessage(fName, lName, gender, dob, language, email, phone, message) 
     });
 
     db.connect((err) => {
-        if (err) throw err;
-        
-        let sql = "INSERT INTO contact_messages (first_name, last_name, gender, dob, language, email, phone, message) VALUES ('" 
-                  + fName + "', '" + lName + "', '" + gender + "', '" + dob + "', '" + language + "', '" + email + "', '" + phone + "', '" + message + "')";
+        if (err) {
+            console.error(err);
+            return res.send("error");
+        }
 
-        db.query(sql, (err, result) => {
-            if (err) throw err;
-            console.log("New contact message saved!");
+        let sql = `INSERT INTO contact_messages 
+        (first_name, last_name, gender, dob, language, email, phone, message) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+
+        db.query(sql, [fName, lName, gender, dob, language, email, phone, message], (err, result) => {
             db.end();
+
+            if (err) {
+                console.error(err);
+                return res.send("error");
+            }
+
+            console.log("Message saved!");
+            res.send("success");
         });
     });
 }
@@ -127,23 +137,15 @@ app.post('/submit-contact', (req, res) => {
     const lName = req.body.lastName;
     const gender = req.body.gender;
     const dob = req.body.dob;
-    const language = req.body.language; 
+    const language = req.body.language;
     const email = req.body.email;
     const phone = req.body.phone;
     const message = req.body.message;
 
     if (fName && lName && gender && dob && email && phone && message) {
-        
-        addMessage(fName, lName, gender, dob, language, email, phone, message);
-        
-        res.send(`
-            <script>
-                alert('Success! Your message has been sent to Sanad team.');
-                window.location.href = '../index.html';
-            </script>
-        `);
+        addMessage(fName, lName, gender, dob, language, email, phone, message, res);
     } else {
-        res.send("<h1>Error: Please fill in all fields marked with a red star (*).</h1>");
+        res.send("error");
     }
 });
 
