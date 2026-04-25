@@ -126,9 +126,9 @@ nav img{
 
 .display-data-button{
     display: inline-block;
-    background-color: rgba(150, 119, 103, 0.5);
-    color: #ffffff;
-    font-size: 18px;
+    background-color: rgba(251, 247, 240, 0.8);
+    color: #596340;
+    font-size: 16px;
     padding: 10px 50px;
     border-radius: 20px;
     margin-top: 20px;
@@ -139,7 +139,7 @@ nav img{
 .display-data-button:hover{
     box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.45);
     transform: scale(1.06);
-    background-color: rgba(150, 119, 103, 0.8);
+    background-color:#FBF7F0;
 }
 .hero-buttons{
     display: flex;
