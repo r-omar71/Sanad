@@ -12,25 +12,34 @@ app.use(express.json());
 // Volunteer Page 
  
 // --- VOLUNTEER REGISTRATION (POST SECTION) ---
-function addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages) {
+function addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages, res) {
     const db = mysql.createConnection({
         host: "localhost",
         user: "root",
-        password: "", 
+        password: "",
         database: "sanad_db"
     });
 
     db.connect((err) => {
-        if (err) throw err;
+        if (err) {
+            console.error(err);
+            return res.send("error");
+        }
 
-        
-        let sql = "INSERT INTO volunteers (first_name, last_name, gender, dob, email, phone, interests, skills, availability, languages) VALUES ('" 
-                  + fName + "', '" + lName + "', '" + gender + "', '" + dob + "', '" + email + "', '" + phone + "', '" + interests + "', '" + skills + "', '" + availability + "', '" + languages + "')";
+        let sql = `INSERT INTO volunteers 
+        (first_name, last_name, gender, dob, email, phone, interests, skills, availability, languages) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-        db.query(sql, (err, result) => {
-            if (err) throw err;
+        db.query(sql, [fName, lName, gender, dob, email, phone, interests, skills, availability, languages], (err, result) => {
+            db.end();
+
+            if (err) {
+                console.error(err);
+                return res.send("error");
+            }
+
             console.log("1 record added to Sanad Volunteers table");
-            db.end(); 
+            res.send("success");
         });
     });
 }
@@ -49,17 +58,9 @@ app.post('/submit-volunteer', (req, res) => {
     const languages = req.body.language ? req.body.language.toString() : '';
 
     if (fName && lName && gender && dob && email && phone && skills) {
-        
-        addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages);
-        
-        res.send(`
-            <script>
-                alert('Success ,Your registration for Sanad has been submitted.');
-                window.location.href = '/index.html';
-            </script>
-        `);
+        addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages, res);
     } else {
-        res.send("<h1>Error: Please complete all mandatory fields marked with a star (*).</h1><a href='javascript:history.back()'>Go Back</a>");
+        res.send("error");
     }
 });
 
