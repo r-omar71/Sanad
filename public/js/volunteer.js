@@ -2,6 +2,7 @@ const form = document.getElementById("volunteerForm");
 const popup = document.getElementById("successPopup");
 const popupTitle = document.querySelector(".popup-content h2");
 const popupMessage = document.querySelector(".popup-content p");
+
 let isSuccess = false;
 
 form.addEventListener("submit", function(e) {
@@ -21,26 +22,19 @@ form.addEventListener("submit", function(e) {
             missingFields.push("Phone must start with 05 and be 10 digits");
         }
     }
-
     if (!form.skills.value.trim()) missingFields.push("Skills is required");
-
-    // ✅ CHECKBOX VALIDATION (المهم)
     const interests = document.querySelectorAll('input[name="interest"]:checked');
     if (interests.length === 0) {
         missingFields.push("Area of Interest is required");
     }
-
     const availability = document.querySelectorAll('input[name="availability"]:checked');
     if (availability.length === 0) {
         missingFields.push("Availability is required");
     }
-
     const languages = document.querySelectorAll('input[name="language"]:checked');
     if (languages.length === 0) {
-        missingFields.push("Language is required");
+        missingFields.push("Languages is required");
     }
-
-    // ❌ إذا فيه أخطاء → وقف
     if (missingFields.length > 0) {
         popup.style.display = "flex";
         popupTitle.textContent = "Missing or Invalid Field";
