@@ -28,17 +28,17 @@
     </header>
 
     <main class="container">
-        <section class="form-section">
-<form id="volunteerForm" action="http://localhost:3000/submit-volunteer" method="POST">                
+    <section class="form-section">
+    <form id="volunteerForm" action="http://localhost:3000/submit-volunteer" method="POST" novalidate>                
     <h2 class="section-title">Personal Information</h2>
     
     <div class="row">
         <div class="input-group">
-            <input type="text" id="firstName" name="firstName" placeholder=" " required>
+            <input type="text" id="firstName" name="firstName" placeholder=" " >
             <label for="firstName" class="floating-label">First Name <span class="required-star">*</span></label>
         </div>
         <div class="input-group">
-            <input type="text" id="lastName" name="lastName" placeholder=" " required>
+            <input type="text" id="lastName" name="lastName" placeholder=" " >
             <label for="lastName" class="floating-label">Last Name <span class="required-star">*</span></label>
         </div>
     </div>
@@ -48,28 +48,28 @@
             <label class="gender-title inline-title">Gender <span class="required-star">*</span></label>
             <div class="gender-options">
                 <label class="radio-label">
-                    <input type="radio" name="gender" value="female" required>
+                    <input type="radio" name="gender" value="female" >
                     <span class="button-design gender-btn">Female</span>
                 </label>
                 <label class="radio-label">
-                    <input type="radio" name="gender" value="male" required>
+                    <input type="radio" name="gender" value="male" >
                     <span class="button-design gender-btn">Male</span>
                 </label>
             </div>
         </div>
         <div class="input-group">
-            <input type="date" id="dob" name="dob" required>
+            <input type="date" id="dob" name="dob" >
             <label for="dob" class="floating-label">Date of Birth <span class="required-star">*</span></label>
         </div>
     </div>
 
     <div class="row">
         <div class="input-group">
-            <input type="email" id="email" name="email" placeholder=" " required>
+            <input type="email" id="email" name="email" placeholder=" " >
             <label for="email" class="floating-label">Email Address <span class="required-star">*</span></label>
         </div>
         <div class="input-group">
-            <input type="tel" id="phone" name="phone" placeholder=" " pattern="05[0-9]{8}" title="Phone number must start with 05 and contain exactly 10 digits" required>
+            <input type="tel" id="phone" name="phone" placeholder=" " pattern="05[0-9]{8}" title="Phone number must start with 05 and contain exactly 10 digits" >
             <label for="phone" class="floating-label">Phone Number (05xxxxxxxx) <span class="required-star">*</span></label>
         </div>
     </div>

@@ -343,7 +343,7 @@ input[type="date"]:valid + .floating-label .required-star {
     padding: 30px;
     border-radius: 12px;
     text-align: center;
-    width: 300px;
+    width: 420px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
@@ -359,6 +359,19 @@ input[type="date"]:valid + .floating-label .required-star {
     color: white;
     border-radius: 6px;
     cursor: pointer;
+}
+.popup-content button:hover {
+    transform: scale(1.05);
+}
+.popup-content ul {
+    text-align: left;
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+.popup-content li {
+    margin-bottom: 8px;
+    font-size: 18px;
 }
 
 @media screen and (max-width:992px){

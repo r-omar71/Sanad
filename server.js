@@ -12,6 +12,11 @@ app.use(express.json());
 // Volunteer Page 
  
 // --- VOLUNTEER REGISTRATION (POST SECTION) ---
+function cleanInput(value) {
+    if (!value) return "";
+    return value.toString().trim().replace(/[<>]/g, "");
+}
+
 function addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages, res) {
     const db = mysql.createConnection({
         host: "localhost",
@@ -23,7 +28,7 @@ function addUser(fName, lName, gender, dob, email, phone, interests, skills, ava
     db.connect((err) => {
         if (err) {
             console.error(err);
-            return res.send("error");
+            return res.send("Database connection error");
         }
 
         let sql = `INSERT INTO volunteers 
@@ -35,33 +40,54 @@ function addUser(fName, lName, gender, dob, email, phone, interests, skills, ava
 
             if (err) {
                 console.error(err);
-                return res.send("error");
+                return res.send("Could not save your information");
             }
 
-            console.log("1 record added to Sanad Volunteers table");
+            console.log("Message saved!");
             res.send("success");
         });
     });
 }
 
 app.post('/submit-volunteer', (req, res) => {
-    const fName = req.body.firstName;
-    const lName = req.body.lastName;
-    const gender = req.body.gender;
-    const dob = req.body.dob;
-    const email = req.body.email;
-    const phone = req.body.phone;
-    const skills = req.body.skills;
+    const fName = cleanInput(req.body.firstName);
+    const lName = cleanInput(req.body.lastName);
+    const gender = cleanInput(req.body.gender);
+    const dob = cleanInput(req.body.dob);
+    const email = cleanInput(req.body.email);
+    const phone = cleanInput(req.body.phone);
+    const skills = cleanInput(req.body.skills);
 
-    const interests = req.body.interest ? req.body.interest.toString() : '';
-    const availability = req.body.availability ? req.body.availability.toString() : '';
-    const languages = req.body.language ? req.body.language.toString() : '';
+    const interests = req.body.interest ? cleanInput(req.body.interest.toString()) : "";
+    const availability = req.body.availability ? cleanInput(req.body.availability.toString()) : "";
+    const languages = req.body.language ? cleanInput(req.body.language.toString()) : "";
 
-    if (fName && lName && gender && dob && email && phone && skills) {
-        addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages, res);
+    let errors = [];
+
+    if (!fName) errors.push("First Name is required");
+    if (!lName) errors.push("Last Name is required");
+    if (!gender) errors.push("Gender is required");
+    if (!dob) errors.push("Date of Birth is required");
+    if (!email) {
+        errors.push("Email is required");
     } else {
-        res.send("error");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) errors.push("Invalid email format");
     }
+    if (!phone) {
+        errors.push("Phone Number is required");
+    } else {
+        const phonePattern = /^05[0-9]{8}$/;
+        if (!phonePattern.test(phone)) {
+            errors.push("Phone must start with 05 and be 10 digits");
+        }
+    }
+    if (!skills) errors.push("Skills is required");
+    if (errors.length > 0) {
+        return res.send(errors.join(" , "));
+    }
+
+    addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages, res);
 });
 
 // --- DATA DISPLAY (GET SECTION) ---
@@ -69,29 +95,36 @@ function getVolunteers(res) {
     const db = mysql.createConnection({
         host: "localhost",
         user: "root",
-        password: "", 
+        password: "",
         database: "sanad_db"
     });
 
     db.connect((err) => {
-        if (err) throw err;
+        if (err) {
+            console.error(err);
+            return res.send("Database connection error");
+        }
 
         let sql = "SELECT * FROM volunteers";
 
         db.query(sql, (err, result) => {
-            if (err) throw err;
+            db.end();
+
+            if (err) {
+                console.error(err);
+                return res.send("Could not get volunteers data");
+            }
 
             res.json(result);
-            db.end();
+
         });
     });
 }
 
 app.get('/view-volunteers', (req, res) => {
     getVolunteers(res);
-});
-
-
+    }
+);
 
 
 
@@ -99,19 +132,18 @@ app.get('/view-volunteers', (req, res) => {
 // Contact Us Page 
 
 // --- CONTACT MESSAGES (POST SECTION) ---
-
-function addMessage(fName, lName, gender, dob, language, email, phone, message) {
+function addMessage(fName, lName, gender, dob, language, email, phone, message, res) {
     const db = mysql.createConnection({
         host: "localhost",
         user: "root",
-        password: "", 
+        password: "",
         database: "sanad_db"
     });
 
     db.connect((err) => {
         if (err) {
             console.error(err);
-            return res.send("error");
+            return res.send("Database connection error");
         }
 
         let sql = `INSERT INTO contact_messages 
@@ -123,7 +155,7 @@ function addMessage(fName, lName, gender, dob, language, email, phone, message) 
 
             if (err) {
                 console.error(err);
-                return res.send("error");
+                return res.send("Could not save your message");
             }
 
             console.log("Message saved!");
@@ -133,20 +165,48 @@ function addMessage(fName, lName, gender, dob, language, email, phone, message) 
 }
 
 app.post('/submit-contact', (req, res) => {
-    const fName = req.body.firstName;
-    const lName = req.body.lastName;
-    const gender = req.body.gender;
-    const dob = req.body.dob;
-    const language = req.body.language;
-    const email = req.body.email;
-    const phone = req.body.phone;
-    const message = req.body.message;
+    const fName = cleanInput(req.body.firstName);
+    const lName = cleanInput(req.body.lastName);
+    const gender = cleanInput(req.body.gender);
+    const dob = cleanInput(req.body.dob);
+    const language = cleanInput(req.body.language);
+    const email = cleanInput(req.body.email);
+    const phone = cleanInput(req.body.phone);
+    const message = cleanInput(req.body.message);
 
-    if (fName && lName && gender && dob && email && phone && message) {
-        addMessage(fName, lName, gender, dob, language, email, phone, message, res);
+    let errors = [];
+
+    if (!fName) errors.push("First Name is required");
+    if (!lName) errors.push("Last Name is required");
+    if (!gender) errors.push("Gender is required");
+    if (!dob) errors.push("Date of Birth is required");
+    if (!language) errors.push("Language is required");
+
+    if (!email) {
+        errors.push("Email is required");
     } else {
-        res.send("error");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) errors.push("Invalid email format");
     }
+
+    if (!phone) {
+        errors.push("Phone Number is required");
+    } else {
+        const phonePattern = /^05[0-9]{8}$/;
+        if (!phonePattern.test(phone)) {
+            errors.push("Phone must start with 05 and contain only numbers, 10 digits");
+        }
+    }
+
+    if (!message) errors.push("Message is required");
+    if (message && message.length < 5) errors.push("Message must be at least 5 characters");
+    if (message.length > 500) errors.push("Message must be less than 500 characters");
+
+    if (errors.length > 0) {
+        return res.send(errors.join(" | "));
+    }
+
+    addMessage(fName, lName, gender, dob, language, email, phone, message, res);
 });
 
 // --- VIEW MESSAGES (GET SECTION) ---
