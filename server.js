@@ -12,6 +12,9 @@ app.use(express.json());
 // Volunteer Page 
  
 // --- VOLUNTEER REGISTRATION (POST SECTION) ---
+// Volunteer Page 
+
+// --- VOLUNTEER REGISTRATION (POST SECTION) ---
 function cleanInput(value) {
     if (!value) return "";
     return value.toString().trim().replace(/[<>]/g, "");
@@ -43,7 +46,7 @@ function addUser(fName, lName, gender, dob, email, phone, interests, skills, ava
                 return res.send("Could not save your information");
             }
 
-            console.log("Message saved!");
+            console.log("Volunteer saved!");
             res.send("success");
         });
     });
@@ -68,12 +71,14 @@ app.post('/submit-volunteer', (req, res) => {
     if (!lName) errors.push("Last Name is required");
     if (!gender) errors.push("Gender is required");
     if (!dob) errors.push("Date of Birth is required");
+
     if (!email) {
         errors.push("Email is required");
     } else {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) errors.push("Invalid email format");
     }
+
     if (!phone) {
         errors.push("Phone Number is required");
     } else {
@@ -82,9 +87,14 @@ app.post('/submit-volunteer', (req, res) => {
             errors.push("Phone must start with 05 and be 10 digits");
         }
     }
+
+    if (!interests) errors.push("Please select at least one Area of Interest");
     if (!skills) errors.push("Skills is required");
+    if (!availability) errors.push("Please select at least one Availability option");
+    if (!languages) errors.push("Please select at least one Language");
+
     if (errors.length > 0) {
-        return res.send(errors.join(" , "));
+        return res.send(errors.join(" | "));
     }
 
     addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages, res);
@@ -116,15 +126,14 @@ function getVolunteers(res) {
             }
 
             res.json(result);
-
+            
         });
     });
 }
 
 app.get('/view-volunteers', (req, res) => {
     getVolunteers(res);
-    }
-);
+});
 
 
 

@@ -2,12 +2,55 @@ const form = document.getElementById("volunteerForm");
 const popup = document.getElementById("successPopup");
 const popupTitle = document.querySelector(".popup-content h2");
 const popupMessage = document.querySelector(".popup-content p");
-
 let isSuccess = false;
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
+    let missingFields = [];
+    if (!form.firstName.value.trim()) missingFields.push("First Name is required");
+    if (!form.lastName.value.trim()) missingFields.push("Last Name is required");
+    if (!form.gender.value) missingFields.push("Gender is required");
+    if (!form.dob.value) missingFields.push("Date of Birth is required");
+    if (!form.email.value.trim()) missingFields.push("Email is required");
+    const phoneValue = form.phone.value.trim();
+    if (!phoneValue) {
+        missingFields.push("Phone Number is required");
+    } else {
+        const phonePattern = /^05[0-9]{8}$/;
+        if (!phonePattern.test(phoneValue)) {
+            missingFields.push("Phone must start with 05 and be 10 digits");
+        }
+    }
 
+    if (!form.skills.value.trim()) missingFields.push("Skills is required");
+
+    // ✅ CHECKBOX VALIDATION (المهم)
+    const interests = document.querySelectorAll('input[name="interest"]:checked');
+    if (interests.length === 0) {
+        missingFields.push("Area of Interest is required");
+    }
+
+    const availability = document.querySelectorAll('input[name="availability"]:checked');
+    if (availability.length === 0) {
+        missingFields.push("Availability is required");
+    }
+
+    const languages = document.querySelectorAll('input[name="language"]:checked');
+    if (languages.length === 0) {
+        missingFields.push("Language is required");
+    }
+
+    // ❌ إذا فيه أخطاء → وقف
+    if (missingFields.length > 0) {
+        popup.style.display = "flex";
+        popupTitle.textContent = "Missing or Invalid Field";
+
+        popupMessage.innerHTML = "<ul>" +
+            missingFields.map(field => `<li>${field}</li>`).join("") +
+            "</ul>";
+
+        return;
+    }
     const formData = new FormData(form);
     const data = new URLSearchParams(formData);
 
@@ -17,7 +60,7 @@ form.addEventListener("submit", function(e) {
     })
     .then(res => res.text())
     .then(result => {
-        console.log("Server response:", result);
+
         popup.style.display = "flex";
 
         if (result.toLowerCase() === "success") {
@@ -26,42 +69,15 @@ form.addEventListener("submit", function(e) {
             popupMessage.textContent = "Your volunteer registration has been submitted successfully.";
             form.reset();
         } else {
-            isSuccess = false;
-            popupTitle.textContent = "Sorry, we found validation errors";
-
-            let missingFields = [];
-
-            if (!form.firstName.value.trim()) missingFields.push("First Name is required");
-            if (!form.lastName.value.trim()) missingFields.push("Last Name is required");
-            if (!form.gender.value) missingFields.push("Gender is required");
-            if (!form.dob.value) missingFields.push("Date of Birth is required");
-            if (!form.email.value.trim()) missingFields.push("Email is required");
-            const phoneValue = form.phone.value.trim();
-            if (!phoneValue) {
-                missingFields.push("Phone Number is required");
-            } else {
-            const phonePattern = /^05[0-9]{8}$/;
-            if (!phonePattern.test(phoneValue)) {
-            missingFields.push("Phone must start with 05 and contain only numbers");
-            }
-        }
-            if (!form.skills.value.trim()) missingFields.push("Skills is required");
-
-            if (missingFields.length > 0) {
-                popupMessage.innerHTML = "<ul>" +
-                    missingFields.map(field => `<li>${field}</li>`).join("") +
-                    "</ul>";
-            } else {
-                popupMessage.textContent = result;
-            }
+            popupTitle.textContent = "Error";
+            popupMessage.textContent = result;
         }
     })
     .catch(err => {
-        console.error(err);
-        isSuccess = false;
+
         popup.style.display = "flex";
         popupTitle.textContent = "Server Error";
-        popupMessage.textContent = "Something went wrong. Please try again.";
+        popupMessage.textContent = "Something went wrong.";
     });
 });
 
