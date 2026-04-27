@@ -303,6 +303,20 @@ select[required] + .floating-label::after {
     color: #e74c3c;
     font-weight: bold;
 }
+.language-group {
+    position: relative;
+}
+.language-group select {
+    width: 100%;
+}
+.select-star {
+    position: absolute;
+    left: 90px; 
+    top: 50%;
+    transform: translateY(-50%);
+    color: red;
+    pointer-events: none;
+}
 .gender-title::after {
     content: " *";
     color: #e74c3c;
@@ -377,10 +391,11 @@ footer{
 
 .popup-content {
     background: white;
+    color: red;
     padding: 30px;
     border-radius: 12px;
     text-align: center;
-    width: 420px;
+    width: 480px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 

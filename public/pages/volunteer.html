@@ -58,7 +58,9 @@
             </div>
         </div>
         <div class="input-group">
-            <input type="date" id="dob" name="dob" >
+            <input type="text" id="dob" name="dob" placeholder=" " 
+                onfocus="(this.type='date')" 
+                onblur="if(!this.value)this.type='text'" required>
             <label for="dob" class="floating-label">Date of Birth <span class="required-star">*</span></label>
         </div>
     </div>
@@ -77,7 +79,7 @@
     <h3 class="section-title mt-40">Volunteer Preferences</h3>
     
     <div class="input-group mb-20">
-        <label class="gender-title">Area of Interest</label>
+        <label class="gender-title">Area of Interest <span class="required-star">*</span></label>
         <div class="gender-options">
             <label class="radio-label">
                 <input type="checkbox" name="interest" value="Education">
@@ -108,7 +110,7 @@
     </div>
     
     <div class="input-group mb-20">
-        <label class="gender-title">Availability</label>
+        <label class="gender-title">Availability <span class="required-star">*</span></label>
         <div class="gender-options">
             <label class="radio-label">
                 <input type="checkbox" name="availability" value="Morning" >
@@ -130,7 +132,7 @@
     </div>
 
     <div class="input-group mb-20">
-        <label class="gender-title">Languages</label>
+        <label class="gender-title">Languages <span class="required-star">*</span></label>
         <div class="gender-options">
             <label class="radio-label">
                 <input type="checkbox" name="language" value="Arabic">

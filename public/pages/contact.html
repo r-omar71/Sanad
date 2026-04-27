@@ -85,15 +85,16 @@
                 onblur="if(!this.value)this.type='text'" required>
             <label for="birthdate" class="floating-label">Date of Birth</label>
         </div>
-        <div class="input-group">
-            <select name="language" required>
-                <option value="" disabled selected>Language</option>
-                <option value="English">English</option>
-                <option value="Arabic">Arabic</option>
-                <option value="French">French</option>
-                <option value="Chinese">Chinese</option>
-            </select>
-        </div>
+        <div class="input-group language-group">
+    <select id="language" name="language" required>
+        <option value="" disabled selected>Language</option>
+        <option value="English">English</option>
+        <option value="Arabic">Arabic</option>
+        <option value="French">French</option>
+        <option value="Chinese">Chinese</option>
+    </select>
+    <span class="select-star">*</span>
+    </div>
     </div>
     <div class="row">
         <div class="input-group">
