@@ -10,11 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Volunteer Page 
- 
-// --- VOLUNTEER REGISTRATION (POST SECTION) ---
-// Volunteer Page 
 
-// --- VOLUNTEER REGISTRATION (POST SECTION) ---
 function cleanInput(value) {
     if (!value) return "";
     return value.toString().trim().replace(/[<>]/g, "");
@@ -100,7 +96,7 @@ app.post('/submit-volunteer', (req, res) => {
     addUser(fName, lName, gender, dob, email, phone, interests, skills, availability, languages, res);
 });
 
-// --- DATA DISPLAY (GET SECTION) ---
+//Get section
 function getVolunteers(res) {
     const db = mysql.createConnection({
         host: "localhost",
@@ -140,7 +136,7 @@ app.get('/view-volunteers', (req, res) => {
 
 // Contact Us Page 
 
-// --- CONTACT MESSAGES (POST SECTION) ---
+
 function addMessage(fName, lName, gender, dob, language, email, phone, message, res) {
     const db = mysql.createConnection({
         host: "localhost",
@@ -208,8 +204,6 @@ app.post('/submit-contact', (req, res) => {
     }
 
     if (!message) errors.push("Message is required");
-    if (message && message.length < 5) errors.push("Message must be at least 5 characters");
-    if (message.length > 500) errors.push("Message must be less than 500 characters");
 
     if (errors.length > 0) {
         return res.send(errors.join(" | "));
@@ -218,7 +212,7 @@ app.post('/submit-contact', (req, res) => {
     addMessage(fName, lName, gender, dob, language, email, phone, message, res);
 });
 
-// --- VIEW MESSAGES (GET SECTION) ---
+//Get section
 
 function getMessages(res) {
     const db = mysql.createConnection({

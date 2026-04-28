@@ -322,7 +322,10 @@ select[required] + .floating-label::after {
     color: #e74c3c;
     font-weight: bold;
 }
-
+.required-star {
+    color: red;
+    margin-left: 4px;
+}
     /*footer Styling*/
 footer{
    margin: 40px auto 20px auto; 
@@ -435,7 +438,12 @@ footer{
     margin-bottom: 8px;
     font-size: 18px;
 }
-
+.field-error {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+}
 /*Responsive Layout*/
 
     @media screen and (max-width:872px){

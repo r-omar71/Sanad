@@ -98,18 +98,20 @@
     </div>
     <div class="row">
         <div class="input-group">
-            <input type="email" id="email" name="email" placeholder=" " required>
-            <label for="email" class="floating-label">Email Address</label>
+            <input type="email" id="email" name="email" placeholder=" ">
+            <label for="email" class="floating-label">Email Address <span class="required-star">*</span></label>
+            <small id="emailError" class="field-error"></small>
         </div>
         <div class="input-group">
-            <input type="tel" id="phone" name="phone" placeholder=" " required 
-                pattern="05[0-9]{8}">
-            <label for="phone" class="floating-label">Phone Number (05xxxxxxxx)</label>
+            <input type="tel" id="phone" name="phone" placeholder=" ">
+            <label for="phone" class="floating-label">Phone Number (05xxxxxxxx) <span class="required-star">*</span></label>
+            <small id="phoneError" class="field-error"></small>
         </div>
     </div>
     <div class="input-group">
             <textarea id="message" name="message" placeholder=" " required></textarea>
             <label for="message" class="floating-label">Message</label>
+            <small id="messageError" class="field-error"></small>
     </div>
     <button type="submit" class="submit-button">Submit</button>
 </form>
@@ -125,8 +127,7 @@
         </section>
     </main>
 
-     <!--footer Section-->
-        <footer>
+    <footer>
             <div class="footer-top">
                 <div class="footer-logo">
                     <img src="../media/logo.svg" alt="logo">
