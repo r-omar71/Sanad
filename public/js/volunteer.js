@@ -128,6 +128,6 @@ function closePopup() {
     popup.style.display = "none";
 
     if (isSuccess) {
-        window.location.href = "../index.html";
+        window.location.href = "../../index.html";
     }
 }
